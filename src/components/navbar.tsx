@@ -89,7 +89,7 @@ export function Navbar() {
           {menuItems.map((item) => (
             <Link
               key={item}
-              to={`/${item.toLowerCase()}`}
+              to={item == "Home" ? "/" : `/${item.toLowerCase()}`}
               className="text-foreground/70 hover:text-foreground transition-colors uppercase"
               style={{ letterSpacing: "0.15em" }}
             >
@@ -111,7 +111,7 @@ export function Navbar() {
             {menuItems.map((item) => (
               <Link
                 key={item}
-                to={`/${item.toLowerCase()}`}
+                to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                 className="block w-full text-left text-foreground/70 hover:text-foreground transition-colors uppercase tracking-widest text-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >

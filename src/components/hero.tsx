@@ -9,7 +9,7 @@ interface HeroProps {
 
 export const Hero = React.memo(function Hero({ imageUrl }: HeroProps) {
   return (
-    <section className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden mt-20 md:mt-32">
+    <section className="relative w-full h-[60vh] md:h-[85vh] overflow-hidden  md:mt-32">
       <motion.div
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}

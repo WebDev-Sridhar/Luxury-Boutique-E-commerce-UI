@@ -1,4 +1,5 @@
 export const menuItems: string[] = [
+  "Home",
   "Shop",
   "Collections",
   "About",
