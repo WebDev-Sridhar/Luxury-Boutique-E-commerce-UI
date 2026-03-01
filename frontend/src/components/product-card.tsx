@@ -66,7 +66,7 @@ export const ProductCard = React.memo(function ProductCard({
           transition={{ duration: 0.3 }}
           className="absolute bottom-0 left-0 right-0 p-6"
         >
-          <button className="w-full bg-white/95 backdrop-blur-sm text-primary py-3 text-sm uppercase tracking-widest hover:bg-white transition-colors">
+          <button className="w-full bg-primary/95 backdrop-blur-sm text-primary-foreground py-3 text-sm uppercase tracking-widest hover:bg-primary/80 transition-colors">
             Quick Add
           </button>
         </motion.div>

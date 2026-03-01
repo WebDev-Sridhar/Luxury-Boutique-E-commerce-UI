@@ -85,7 +85,7 @@ export function SignUp() {
       <button
         type="submit"
         disabled={submitting || !email || !password}
-        className="w-full py-3 text-sm uppercase tracking-widest bg-accent text-primary disabled:opacity-50 active:scale-95 transition-all duration-200"
+        className="w-full py-3 text-sm uppercase tracking-widest bg-primary text-primary-foreground  active:scale-95 transition-all duration-200"
         style={{ letterSpacing: "0.15em" }}
       >
         Sign Up
