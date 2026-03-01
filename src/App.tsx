@@ -12,9 +12,11 @@ import { Collections } from "./pages/Collections";
 import { Journal } from "./pages/Journal";
 import { Contact } from "./pages/Contact";
 
+
 export default function App() {
   return (
     <BrowserRouter>
+     
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
