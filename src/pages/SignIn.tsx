@@ -1,110 +1,124 @@
-import React from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
+import { PageTransition } from "../components/animation/PageTransition";
 
 export function SignIn() {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [errors, setErrors] = React.useState<{
-    email?: string;
-    password?: string;
-  }>({});
-  const [submitting, setSubmitting] = React.useState(false);
-
-  const validate = () => {
-    const errs: typeof errors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email) errs.email = "Email is required";
-    else if (!emailRegex.test(email)) errs.email = "Invalid email address";
-    if (!password) errs.password = "Password is required";
-    setErrors(errs);
-    return Object.keys(errs).length === 0;
-  };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validate()) return;
-    setSubmitting(true);
-    // simulate
-    setTimeout(() => {
-      setSubmitting(false);
-    }, 500);
   };
 
   return (
-    <motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.6 }}
-  className="min-h-screen flex items-center justify-center bg-background transition-colors duration-300"
->
-  <div className="bg-card text-card-foreground p-12 shadow-[0_4px_20px_rgba(0,0,0,0.04)] max-w-md w-full transition-colors duration-300">
-    <h2
-      className="text-2xl mb-8 text-center"
-      style={{
-        fontFamily: "Cormorant Garamond, serif",
-        fontWeight: 300,
-      }}
-    >
-      Sign In
-    </h2>
+    <PageTransition>
+      <div className="min-h-screen flex flex-col lg:flex-row">
+        {/* Left: Image */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="hidden lg:block lg:w-1/2 relative"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80"
+            alt="Fashion"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute bottom-12 left-12">
+            <p className="text-white/70 text-[10px] uppercase tracking-[0.3em] mb-2">Welcome Back</p>
+            <h2 className="text-white text-4xl" style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}>
+              Your Style Awaits
+            </h2>
+          </div>
+        </motion.div>
 
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Email */}
-      <div>
-        <label className="block text-sm mb-1 text-muted-foreground">
-          Email
-        </label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 border border-border bg-input-background text-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
-          aria-invalid={errors.email ? "true" : undefined}
-        />
-        <p className="h-5 text-destructive text-sm mt-1">
-          {errors.email || "\u00A0"}
-        </p>
+        {/* Right: Form */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="flex-1 flex items-center justify-center px-6 py-20 lg:py-0"
+        >
+          <div className="w-full max-w-sm">
+            <Link to="/" className="block text-center mb-12">
+              <span className="text-2xl tracking-[0.2em]" style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}>
+                MAISON
+              </span>
+            </Link>
+
+            <h1 className="text-3xl text-center mb-2" style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}>
+              Sign In
+            </h1>
+            <p className="text-sm text-muted-foreground text-center mb-10">Welcome back to Maison</p>
+
+            {/* Social Buttons */}
+            <div className="space-y-3 mb-8">
+              {["Google", "Apple"].map((provider) => (
+                <button
+                  key={provider}
+                  className="w-full py-3 border border-border/50 text-[11px] uppercase tracking-[0.15em] hover:bg-muted transition-colors flex items-center justify-center gap-2"
+                >
+                  Continue with {provider}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-4 mb-8">
+              <div className="flex-1 h-[1px] bg-border/30" />
+              <span className="text-[10px] text-muted-foreground uppercase tracking-wider">or</span>
+              <div className="flex-1 h-[1px] bg-border/30" />
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label className="block text-[11px] uppercase tracking-[0.15em] text-muted-foreground mb-2">Email</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full bg-transparent border-b border-border/50 pb-3 text-sm focus:outline-none focus:border-foreground transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] uppercase tracking-[0.15em] text-muted-foreground mb-2">Password</label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="w-full bg-transparent border-b border-border/50 pb-3 text-sm focus:outline-none focus:border-foreground transition-colors"
+                />
+              </div>
+
+              <div className="flex justify-end">
+                <button type="button" className="text-[10px] text-muted-foreground hover:text-foreground transition-colors tracking-wide normal-case">
+                  Forgot password?
+                </button>
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                className="w-full bg-primary text-primary-foreground py-4 text-[11px] uppercase tracking-[0.2em] hover:opacity-90 transition-opacity mt-4"
+              >
+                Sign In
+              </motion.button>
+            </form>
+
+            <p className="mt-8 text-center text-sm text-muted-foreground">
+              Don't have an account?{" "}
+              <Link to="/signup" className="text-foreground hover:underline transition-colors">
+                Create one
+              </Link>
+            </p>
+          </div>
+        </motion.div>
       </div>
-
-      {/* Password */}
-      <div>
-        <label className="block text-sm mb-1 text-muted-foreground">
-          Password
-        </label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-4 py-2 border border-border bg-input-background text-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
-          aria-invalid={errors.password ? "true" : undefined}
-        />
-        <p className="h-5 text-destructive text-sm mt-1">
-          {errors.password || "\u00A0"}
-        </p>
-      </div>
-
-      {/* Button */}
-      <button
-        type="submit"
-        disabled={submitting || !email || !password}
-        className="w-full py-3 text-sm uppercase tracking-widest bg-primary text-primary-foreground  active:scale-95 transition-all duration-200"
-        style={{ letterSpacing: "0.15em" }}
-      >
-        Continue
-      </button>
-    </form>
-
-    <p className="mt-6 text-center text-sm text-muted-foreground">
-      Don&apos;t have an account?{" "}
-      <Link
-        to="/signup"
-        className="underline hover:text-foreground transition-colors"
-      >
-        Sign up
-      </Link>
-    </p>
-  </div>
-</motion.div>
+    </PageTransition>
   );
 }

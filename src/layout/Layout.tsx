@@ -1,19 +1,21 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar } from "../components/navbar";
 import { Footer } from "../components/footer";
+import { CartDrawer } from "../components/cart/CartDrawer";
+import { WhatsAppButton } from "../components/ui/WhatsAppButton";
 import ScrollToTop from "../components/ScrollToTop";
 
-// simple layout with header and footer
 export function Layout() {
   return (
     <>
       <ScrollToTop />
       <Navbar />
-      <main className="min-h-screen pt-24">
+      <main className="min-h-screen">
         <Outlet />
       </main>
       <Footer />
+      <CartDrawer />
+      <WhatsAppButton />
     </>
   );
 }

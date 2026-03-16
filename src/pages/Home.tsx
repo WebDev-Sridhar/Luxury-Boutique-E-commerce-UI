@@ -1,42 +1,42 @@
-import React from "react";
 import { Hero } from "../components/hero";
-import { ProductGrid } from "../components/product-grid";
-import { FeaturedCollection } from "../components/featured-collection";
+import { Marquee } from "../components/layout/Marquee";
+import { NewArrivals } from "../components/home/NewArrivals";
+import { Lookbook } from "../components/home/Lookbook";
+import { BrandStory } from "../components/home/BrandStory";
 import { Testimonials } from "../components/testimonials";
-import { Newsletter } from "../components/newsletter";
-import { products } from "../data/products";
-import { featuredCollection } from "../data/collections";
+import { LifestyleGrid } from "../components/home/LifestyleGrid";
+import { CTABanner } from "../components/home/CTABanner";
 
 export function Home() {
   return (
     <>
-      <Hero imageUrl="https://images.unsplash.com/photo-1567631643547-67a2dd59f266?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-
-      <ProductGrid
-        products={products}
-        title="New Arrivals"
-        subtitle="Discover our latest collection of refined essentials, crafted for the discerning individual."
+      <Hero
+        imageUrl="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1600&q=80"
+        title={"The Art of\nTimeless Style"}
+        subtitle="Discover our curated collection of refined luxury essentials"
+        ctaText="Explore Collection"
+        ctaLink="/collections"
       />
 
-      {/* Divider */}
-      <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
-        <div className="border-t border-border/30" />
-      </div>
-
-      <FeaturedCollection
-        imageUrl={featuredCollection.imageUrl}
-        title={featuredCollection.title}
-        description={featuredCollection.description}
+      {/* Brand Marquee */}
+      <Marquee
+        items={["SPRING 2026", "NEW ARRIVALS", "FREE SHIPPING", "HANDCRAFTED LUXURY", "TIMELESS DESIGN"]}
+        className="py-5 border-b border-border/20 text-foreground/40"
+        itemClassName="text-[10px] md:text-xs tracking-[0.3em] uppercase"
+        speed={35}
       />
 
-      {/* Divider */}
-      <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
-        <div className="border-t border-border/30" />
-      </div>
+      <NewArrivals />
+
+      <Lookbook />
+
+      <BrandStory />
 
       <Testimonials />
 
-      <Newsletter />
+      <LifestyleGrid />
+
+      <CTABanner />
     </>
   );
 }

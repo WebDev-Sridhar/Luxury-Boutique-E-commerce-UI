@@ -1,81 +1,105 @@
-import React from "react";
 import { motion } from "motion/react";
-
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { featuredCollection, collections } from "../data/collections";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { Hero } from "../components/hero";
+import { RevealOnScroll } from "../components/animation/RevealOnScroll";
+import { AnimatedText } from "../components/animation/AnimatedText";
+import { SplitSection } from "../components/layout/SplitSection";
+import { fadeUp, slideInLeft, slideInRight } from "@/lib/animations";
+import { PageTransition } from "../components/animation/PageTransition";
 
 export function Collections() {
   return (
-    <>
-      {/* page heading */}
-      <motion.header
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="bg-background py-24"
-      >
-        <div className="max-w-[1400px] mx-auto px-6 text-center">
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl"
-            style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}
-          >
-            Collections
-          </h1>
-        </div>
-      </motion.header>
+    <PageTransition>
+      {/* Hero */}
+      <Hero
+        imageUrl={featuredCollection.imageUrl}
+        title="Our Collections"
+        subtitle="Curated selections that celebrate the art of refined living"
+        ctaText="Explore All"
+        ctaLink="#collections"
+        compact
+      />
 
-      {/* featured banner */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="w-full overflow-hidden h-[400px] md:h-[600px]">
-          <ImageWithFallback
-            src={featuredCollection.imageUrl}
-            alt={featuredCollection.title}
-            loading="lazy"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </motion.section>
+      {/* Featured Collection */}
+      <section className="py-20 md:py-32">
+        <SplitSection
+          imageSrc={featuredCollection.imageUrl}
+          imageAlt={featuredCollection.title}
+          imagePosition="right"
+          ratio="40/60"
+        >
+          <div className="space-y-6">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Featured Collection</p>
+            <h2 className="text-3xl md:text-5xl" style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}>
+              {featuredCollection.title}
+            </h2>
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-md" style={{ fontWeight: 300 }}>
+              {featuredCollection.description}
+            </p>
+            <Link
+              to="/shop"
+              className="group inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-foreground/60 hover:text-foreground transition-colors"
+            >
+              Shop Collection
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
+          </div>
+        </SplitSection>
+      </section>
 
-      {/* grid of collections */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="py-24 bg-background"
-      >
-        <div className="max-w-[1400px] mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {collections.map((col) => (
-              <div key={col.title} className="relative overflow-hidden">
-                <ImageWithFallback
-                  src={col.imageUrl}
-                  alt={col.title}
-                  loading="lazy"
-                  className="w-full h-64 object-cover transition-opacity duration-300 hover:opacity-90"
-                />
-                <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-background/60">
-                  <h2
-                    className="text-2xl"
-                    style={{
-                      fontFamily: "Cormorant Garamond, serif",
-                      fontWeight: 300,
-                    }}
-                  >
-                    {col.title}
-                  </h2>
-                  <p className="text-sm text-foreground/70 mt-2">
-                    {col.description}
-                  </p>
+      {/* Collection Grid */}
+      <section id="collections" className="py-20 md:py-32 bg-secondary/30">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="text-center mb-16 md:mb-20">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">Browse</p>
+            <AnimatedText
+              text="All Collections"
+              as="h2"
+              className="text-4xl md:text-5xl lg:text-6xl"
+              style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}
+            />
+          </div>
+
+          <div className="space-y-20">
+            {collections.map((col, i) => (
+              <RevealOnScroll
+                key={col.title}
+                variant={i % 2 === 0 ? slideInLeft : slideInRight}
+                className="group cursor-pointer"
+              >
+                <div className={`flex flex-col ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-8 items-center`}>
+                  <div className="w-full md:w-3/5 overflow-hidden">
+                    <motion.img
+                      src={col.imageUrl}
+                      alt={col.title}
+                      className="w-full h-[40vh] md:h-[60vh] object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="w-full md:w-2/5 space-y-4 px-4 md:px-8">
+                    <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Collection {String(i + 1).padStart(2, "0")}</p>
+                    <h3 className="text-3xl md:text-4xl" style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}>
+                      {col.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed" style={{ fontWeight: 300 }}>
+                      {col.description}
+                    </p>
+                    <Link
+                      to="/shop"
+                      className="group/link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-foreground/60 hover:text-foreground transition-colors pt-2"
+                    >
+                      Explore
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform duration-300" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
-      </motion.section>
-    </>
+      </section>
+    </PageTransition>
   );
 }
