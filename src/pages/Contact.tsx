@@ -56,7 +56,7 @@ export function Contact() {
               <div className="space-y-10">
                 <div className="overflow-hidden h-[40vh] lg:h-[50vh]">
                   <img
-                    src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80"
+                    src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&q=80"
                     alt="Maison Boutique"
                     className="w-full h-full object-cover"
                     loading="lazy"

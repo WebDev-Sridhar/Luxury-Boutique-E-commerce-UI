@@ -22,7 +22,7 @@ export function SignIn() {
           className="hidden lg:block lg:w-1/2 relative"
         >
           <img
-            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80"
+            src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=80"
             alt="Fashion"
             className="w-full h-full object-cover"
           />

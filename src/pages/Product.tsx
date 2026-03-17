@@ -21,6 +21,7 @@ export function Product() {
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState<string>("");
+  const [selectedColor, setSelectedColor] = useState<string>("");
   const [quantity, setQuantity] = useState(1);
   const [activeAccordion, setActiveAccordion] = useState<string | null>("details");
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -51,11 +52,11 @@ export function Product() {
   }
 
   const handleAddToCart = () => {
-    addItem(product, quantity, selectedSize || sizes[0]);
+    addItem(product, quantity, selectedSize || sizes[0], selectedColor || undefined);
   };
 
   const handleWhatsAppOrder = () => {
-    const message = generateProductMessage(product, quantity, selectedSize || sizes[0]);
+    const message = generateProductMessage(product, quantity, selectedSize || sizes[0], selectedColor || undefined);
     openWhatsApp(message);
   };
 
@@ -164,12 +165,19 @@ export function Product() {
                 {/* Color Swatches */}
                 {product.colors && product.colors.length > 0 && (
                   <div>
-                    <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground mb-3">Color</p>
-                    <div className="flex gap-2">
+                    <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground mb-3">
+                      Color{selectedColor ? ` — ${selectedColor}` : ""}
+                    </p>
+                    <div className="flex gap-3">
                       {product.colors.map((color) => (
                         <button
                           key={color.name}
-                          className="w-8 h-8 rounded-full border-2 border-border/30 hover:border-foreground transition-colors"
+                          onClick={() => setSelectedColor(color.name)}
+                          className={`w-8 h-8 rounded-full transition-all duration-200 ${
+                            selectedColor === color.name
+                              ? "ring-2 ring-offset-2 ring-foreground"
+                              : "border-2 border-border/30 hover:border-foreground"
+                          }`}
                           style={{ backgroundColor: color.hex }}
                           title={color.name}
                         />

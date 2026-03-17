@@ -86,7 +86,7 @@ export function ProductCard({ product, index = 0, className = "", showQuickView 
           {/* Wishlist Button */}
           <button
             onClick={handleWishlist}
-            className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-background/80 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-background"
+            className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-background/80 backdrop-blur-sm rounded-full opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 hover:bg-background"
             aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
           >
             <Heart
@@ -95,11 +95,8 @@ export function ProductCard({ product, index = 0, className = "", showQuickView 
           </button>
 
           {/* Bottom Actions */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 10 }}
-            transition={{ duration: 0.3 }}
-            className="absolute bottom-0 left-0 right-0 p-4 flex gap-2"
+          <div
+            className="absolute bottom-0 left-0 right-0 p-4 flex gap-2 opacity-100 translate-y-0 md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300"
           >
             <button
               onClick={handleQuickAdd}
@@ -121,7 +118,7 @@ export function ProductCard({ product, index = 0, className = "", showQuickView 
                 <Eye className="w-4 h-4" />
               </button>
             )}
-          </motion.div>
+          </div>
         </div>
 
         {/* Product Info */}

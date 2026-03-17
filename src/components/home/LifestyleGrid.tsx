@@ -5,13 +5,13 @@ import { AnimatedText } from "@/components/animation/AnimatedText";
 
 const lifestyleImages = [
   { src: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80", aspect: "tall" },
-  { src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80", aspect: "wide" },
-  { src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80", aspect: "tall" },
-  { src: "https://images.unsplash.com/photo-1762341532424-c7262c26d245?q=80&w=1313&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&q=80", aspect: "square" },
-  { src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80", aspect: "wide" },
-  { src: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=600&q=80", aspect: "square" },
-  { src: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80", aspect: "tall" },
-  { src: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80", aspect: "square" },
+  { src: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&q=80", aspect: "wide" },
+  { src: "https://images.unsplash.com/photo-1566206091558-7f218b696731?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&q=80", aspect: "tall" },
+  { src: "https://images.unsplash.com/photo-1762341532424-c7262c26d245?w=600&q=80", aspect: "square" },
+  { src: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=600&q=80", aspect: "wide" },
+  { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80", aspect: "square" },
+  { src: "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&q=80", aspect: "tall" },
+  { src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80", aspect: "square" },
 ];
 
 export function LifestyleGrid() {

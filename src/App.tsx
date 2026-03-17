@@ -13,6 +13,7 @@ import { SignUp } from "./pages/SignUp";
 import { Collections } from "./pages/Collections";
 import { Journal } from "./pages/Journal";
 import { Contact } from "./pages/Contact";
+import { Wishlist } from "./pages/Wishlist";
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
               <Route path="collections" element={<Collections />} />
               <Route path="journal" element={<Journal />} />
               <Route path="contact" element={<Contact />} />
+              <Route path="wishlist" element={<Wishlist />} />
             </Route>
           </Routes>
         </WishlistProvider>

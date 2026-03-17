@@ -16,7 +16,7 @@ export function BrandStory() {
   return (
     <section className="py-20 md:py-32">
       <SplitSection
-        imageSrc="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=900&q=80"
+        imageSrc="https://images.unsplash.com/photo-1604176354204-9268737828e4?w=900&q=80"
         imageAlt="Maison Atelier"
         imagePosition="left"
         ratio="60/40"

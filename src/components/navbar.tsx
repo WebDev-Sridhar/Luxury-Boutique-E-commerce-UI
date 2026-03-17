@@ -110,9 +110,9 @@ export function Navbar() {
                   <User className="w-[18px] h-[18px]" />
                 </Link>
 
-                <button
+                <Link
+                  to="/wishlist"
                   className={`relative hidden md:block ${subtleColor} hover:${textColor} transition-colors`}
-                  onClick={() => {}}
                   aria-label="Wishlist"
                 >
                   <Heart className="w-[18px] h-[18px]" />
@@ -126,7 +126,7 @@ export function Navbar() {
                       {wishlistCount}
                     </motion.span>
                   )}
-                </button>
+                </Link>
 
                 <button
                   onClick={openCart}
@@ -194,9 +194,9 @@ export function Navbar() {
                 <Link to="/signin" onClick={() => setMobileMenuOpen(false)} className="text-foreground/60 hover:text-foreground transition-colors">
                   <User className="w-5 h-5" />
                 </Link>
-                <button className="text-foreground/60 hover:text-foreground transition-colors" aria-label="Wishlist">
+                <Link to="/wishlist" onClick={() => setMobileMenuOpen(false)} className="text-foreground/60 hover:text-foreground transition-colors" aria-label="Wishlist">
                   <Heart className="w-5 h-5" />
-                </button>
+                </Link>
               </motion.div>
             </div>
           </motion.div>

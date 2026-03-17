@@ -14,7 +14,7 @@ export const products: Product[] = [
     inStock: true,
     imageUrl: "https://images.unsplash.com/photo-1769107805528-964f4de0e342?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwYmVpZ2UlMjBkcmVzcyUyMGJvdXRpcXVlfGVufDF8fHx8MTc3MjIwNDcyNHww&ixlib=rb-4.1.0&q=80&w=1080",
     secondaryImageUrl: "https://images.unsplash.com/photo-1770294758942-7ce9ca052986?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwc2lsayUyMGJsb3VzZSUyMGl2b3J5fGVufDF8fHx8MTc3MjIwNDcyNHww&ixlib=rb-4.1.0&q=80&w=1080",
-    galleryImages: ["https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80"],
+    galleryImages: ["https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80"],
   },
   {
     id: "2",
@@ -40,8 +40,8 @@ export const products: Product[] = [
     sizes: ["XS", "S", "M", "L"],
     colors: [{ name: "Cream", hex: "#FFFDD0" }, { name: "Olive", hex: "#808000" }],
     inStock: true,
-    imageUrl: "https://images.unsplash.com/photo-1638396637969-956ca903df87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaW5lbiUyMHRyb3VzZXJzJTIwY3JlYW0lMjBtaW5pbWFsaXN0fGVufDF8fHx8MTc3MjIwNDcyNXww&ixlib=rb-4.1.0&q=80&w=1080",
-    secondaryImageUrl: "https://images.unsplash.com/photo-1762019108554-51759e47148a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBoYW5kYmFnJTIwYmVpZ2UlMjBsZWF0aGVyfGVufDF8fHx8MTc3MjIwNDcyNnww&ixlib=rb-4.1.0&q=80&w=1080",
+    imageUrl: "https://images.unsplash.com/photo-1638396637969-956ca903df87?w=1080&q=80",
+    secondaryImageUrl: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1080&q=80",
   },
   {
     id: "4",
@@ -54,8 +54,8 @@ export const products: Product[] = [
     colors: [{ name: "Tan", hex: "#D2B48C" }, { name: "Black", hex: "#1a1a1a" }],
     tags: ["New"],
     inStock: true,
-    imageUrl: "https://images.unsplash.com/photo-1762019108554-51759e47148a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBoYW5kYmFnJTIwYmVpZ2UlMjBsZWF0aGVyfGVufDF8fHx8MTc3MjIwNDcyNnww&ixlib=rb-4.1.0&q=80&w=1080",
-    secondaryImageUrl: "https://images.unsplash.com/photo-1625792508553-5e66a81659fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwamV3ZWxyeSUyMGdvbGQlMjBuZWNrbGFjZXxlbnwxfHx8fDE3NzIyMDQ3MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    imageUrl: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1080&q=80",
+    secondaryImageUrl: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1080&q=80",
   },
   {
     id: "5",
@@ -67,8 +67,8 @@ export const products: Product[] = [
     sizes: ["One Size"],
     colors: [{ name: "Gold", hex: "#FFD700" }],
     inStock: true,
-    imageUrl: "https://images.unsplash.com/photo-1625792508553-5e66a81659fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwamV3ZWxyeSUyMGdvbGQlMjBuZWNrbGFjZXxlbnwxfHx8fDE3NzIyMDQ3MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    secondaryImageUrl: "https://images.unsplash.com/photo-1770294758942-7ce9ca052986?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwc2lsayUyMGJsb3VzZSUyMGl2b3J5fGVufDF8fHx8MTc3MjIwNDcyNHww&ixlib=rb-4.1.0&q=80&w=1080",
+    imageUrl: "https://images.unsplash.com/photo-1705326454924-f6777522b030?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=1080&q=80",
+    secondaryImageUrl: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1080&q=80",
   },
   {
     id: "6",
@@ -82,8 +82,8 @@ export const products: Product[] = [
     colors: [{ name: "Camel", hex: "#C19A6B" }, { name: "Midnight", hex: "#191970" }],
     tags: ["Limited"],
     inStock: true,
-    imageUrl: "https://images.unsplash.com/photo-1746972466957-6fe022ade280?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXVwZSUyMHdvb2wlMjBjb2F0JTIwZmFzaGlvbnxlbnwxfHx8fDE3NzIyMDQ3MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    secondaryImageUrl: "https://images.unsplash.com/photo-1755519024774-864df34fcf94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXNobWVyZSUyMHN3ZWF0ZXIlMjBuZXV0cmFsJTIwYmVpZ2V8ZW58MXx8fHwxNzcyMjA0NzI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    imageUrl: "https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=1080&q=80",
+    secondaryImageUrl: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=1080&q=80",
   },
   {
     id: "7",
@@ -96,8 +96,8 @@ export const products: Product[] = [
     colors: [{ name: "Ivory", hex: "#FFFFF0" }, { name: "Blush", hex: "#DE5D83" }],
     tags: ["New"],
     inStock: true,
-    imageUrl: "https://images.unsplash.com/photo-1770294758942-7ce9ca052986?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwc2lsayUyMGJsb3VzZSUyMGl2b3J5fGVufDF8fHx8MTc3MjIwNDcyNHww&ixlib=rb-4.1.0&q=80&w=1080",
-    secondaryImageUrl: "https://images.unsplash.com/photo-1638396637969-956ca903df87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaW5lbiUyMHRyb3VzZXJzJTIwY3JlYW0lMjBtaW5pbWFsaXN0fGVufDF8fHx8MTc3MjIwNDcyNXww&ixlib=rb-4.1.0&q=80&w=1080",
+    imageUrl: "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=1080&q=80",
+    secondaryImageUrl: "https://images.unsplash.com/photo-1552874869-5c39ec9288dc?w=1080&q=80",
   },
   {
     id: "8",
@@ -109,8 +109,8 @@ export const products: Product[] = [
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: [{ name: "Ecru", hex: "#C2B280" }, { name: "Black", hex: "#1a1a1a" }],
     inStock: true,
-    imageUrl: "https://images.unsplash.com/photo-1769107805528-964f4de0e342?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwYmVpZ2UlMjBkcmVzcyUyMGJvdXRpcXVlfGVufDF8fHx8MTc3MjIwNDcyNHww&ixlib=rb-4.1.0&q=80&w=1080",
-    secondaryImageUrl: "https://images.unsplash.com/photo-1761110583261-3ea6f09f0699?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBmYXNoaW9uJTIwcG9ydHJhaXQlMjBpdm9yeSUyMGJhY2tncm91bmR8ZW58MXx8fHwxNzcyMjA0NzMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    imageUrl: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=1080&q=80",
+    secondaryImageUrl: "https://images.unsplash.com/photo-1577900232427-18219b9166a0?w=1080&q=80",
   },
   {
     id: "9",
@@ -138,7 +138,7 @@ export const products: Product[] = [
     tags: ["Limited"],
     inStock: true,
     imageUrl: "https://images.unsplash.com/photo-1518481852452-9415b262eba4?w=1080&q=80",
-    secondaryImageUrl: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1080&q=80",
+    secondaryImageUrl: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=1080&q=80",
   },
   {
     id: "11",

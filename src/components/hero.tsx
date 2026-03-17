@@ -99,8 +99,8 @@ export function Hero({
                 whileTap={{ scale: 0.97 }}
                 className="relative bg-white text-black px-7 py-3.5 md:px-10 md:py-4 text-[11px] uppercase tracking-[0.2em] overflow-hidden group cursor-pointer"
               >
-                <span className="relative z-10 transition-colors duration-300 group-hover:text-white">{ctaText}</span>
-                <span className="absolute inset-0 bg-foreground scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                <span className="relative z-10 transition-colors duration-500 group-hover:text-white">{ctaText}</span>
+                <span className="absolute inset-0 z-0 bg-black scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
               </motion.button>
             </Link>
           </motion.div>

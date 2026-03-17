@@ -1,18 +1,20 @@
 import type { Product, CartItem } from "@/types/product";
 
 // Replace with your actual WhatsApp business number (include country code, no + or spaces)
-export const WHATSAPP_NUMBER = "1234567890";
+export const WHATSAPP_NUMBER = "6380614150";
 
 export function generateProductMessage(
   product: Product,
   quantity: number = 1,
-  size?: string
+  size?: string,
+  color?: string
 ): string {
   let message = `Hi! I'm interested in ordering from MAISON:\n\n`;
   message += `*${product.name}*\n`;
   message += `Price: $${product.price.toLocaleString()}\n`;
   message += `Quantity: ${quantity}\n`;
   if (size) message += `Size: ${size}\n`;
+  if (color) message += `Color: ${color}\n`;
   message += `\nTotal: $${(product.price * quantity).toLocaleString()}\n`;
   message += `\nPlease confirm availability and share payment details. Thank you!`;
   return message;

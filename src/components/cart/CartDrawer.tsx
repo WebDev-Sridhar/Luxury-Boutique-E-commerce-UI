@@ -98,8 +98,13 @@ export function CartDrawer() {
                           </p>
                         )}
                         {item.selectedColor && (
-                          <p className="text-xs text-muted-foreground mb-1">
-                            Color: {item.selectedColor}
+                          <p className="text-xs text-muted-foreground mb-1 flex items-center gap-1.5">
+                            Color:
+                            <span
+                              className="inline-block w-3 h-3 rounded-full border border-border/50"
+                              style={{ backgroundColor: item.product.colors?.find(c => c.name === item.selectedColor)?.hex }}
+                            />
+                            {item.selectedColor}
                           </p>
                         )}
                         <p className="text-sm font-medium tracking-wide">

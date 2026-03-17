@@ -88,7 +88,16 @@ export function Cart() {
                               <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground mb-1">{item.product.category}</p>
                             )}
                             {item.selectedSize && <p className="text-xs text-muted-foreground">Size: {item.selectedSize}</p>}
-                            {item.selectedColor && <p className="text-xs text-muted-foreground">Color: {item.selectedColor}</p>}
+                            {item.selectedColor && (
+                              <p className="text-xs text-muted-foreground flex items-center gap-1.5">
+                                Color:
+                                <span
+                                  className="inline-block w-3 h-3 rounded-full border border-border/50"
+                                  style={{ backgroundColor: item.product.colors?.find(c => c.name === item.selectedColor)?.hex }}
+                                />
+                                {item.selectedColor}
+                              </p>
+                            )}
                           </div>
 
                           <div className="flex items-center justify-between mt-4">
