@@ -33,7 +33,7 @@ export function HorizontalScroll({
   if (isMobile) {
     return (
       <div className={`${className} overflow-hidden`}>
-        <div className="flex gap-4 px-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 scrollbar-hide">
+        <div className="flex gap-4 px-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
           {children}
         </div>
       </div>

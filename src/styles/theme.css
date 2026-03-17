@@ -158,6 +158,7 @@
   html {
     font-size: var(--font-size);
     transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
   }
 
   body {
@@ -168,6 +169,7 @@
     letter-spacing: 0.01em;
     transition: background-color 0.3s, color 0.3s;
     overflow-x: hidden;
+    width: 100%;
   }
 
   /* -------------------------------- */

@@ -7,7 +7,7 @@ import ScrollToTop from "../components/ScrollToTop";
 
 export function Layout() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <ScrollToTop />
       <Navbar />
       <main className="min-h-screen">
@@ -16,6 +16,6 @@ export function Layout() {
       <Footer />
       <CartDrawer />
       <WhatsAppButton />
-    </>
+    </div>
   );
 }

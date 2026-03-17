@@ -47,13 +47,13 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 40 }}
         transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-        className="bg-background w-full max-h-[85vh] md:max-h-[80vh] md:max-w-2xl md:w-full flex flex-col md:flex-row overflow-hidden relative rounded-t-xl md:rounded-none"
+        className="bg-background w-full max-h-[85vh] md:max-h-[80vh] md:max-w-2xl md:w-full flex flex-col md:flex-row overflow-hidden relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center bg-background/80 backdrop-blur-sm text-foreground/60 hover:text-foreground transition-colors"
+          className="absolute top-4 right-2 z-10 w-8 h-8 flex items-center justify-center bg-background/80 backdrop-blur-sm text-foreground/60 hover:text-foreground transition-colors"
           aria-label="Close"
         >
           <X className="w-4 h-4" />
