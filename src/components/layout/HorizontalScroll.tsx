@@ -41,7 +41,7 @@ export function HorizontalScroll({
   }
 
   return (
-    <section ref={containerRef} className={`relative ${className}`} style={{ height }}>
+    <section ref={containerRef} className={`relative overflow-hidden ${className}`} style={{ height }}>
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-6 pl-8 lg:pl-20">
           {children}
