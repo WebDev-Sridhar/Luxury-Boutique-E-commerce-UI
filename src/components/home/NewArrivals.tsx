@@ -35,12 +35,11 @@ export function NewArrivals() {
       </div>
 
       {/* Asymmetric Product Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-8 md:gap-y-12 lg:gap-y-16">
         {featured.map((product, i) => (
           <motion.div
             key={product.id}
-            className={i === 0 ? "lg:row-span-1" : ""}
-            style={i === 1 ? { marginTop: "3rem" } : i === 4 ? { marginTop: "-2rem" } : {}}
+            className={`${i === 0 ? "lg:row-span-1" : ""} ${i === 1 ? "lg:mt-12" : ""} ${i === 4 ? "lg:-mt-8" : ""}`}
           >
             <ProductCard product={product} index={i} />
           </motion.div>

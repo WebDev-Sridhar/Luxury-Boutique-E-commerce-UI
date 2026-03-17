@@ -60,7 +60,7 @@ export function Hero({
                 {line.split(" ").map((word, wordIdx) => (
                   <span key={wordIdx} className="inline-block overflow-hidden mr-[0.3em]">
                     <motion.span
-                      className="inline-block text-white text-[14vw] md:text-[8vw] lg:text-[6.5vw] leading-[0.95] tracking-[-0.02em]"
+                      className="inline-block text-white text-[11vw] sm:text-[12vw] md:text-[8vw] lg:text-[6.5vw] leading-[0.95] tracking-[-0.02em]"
                       style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}
                       initial={{ y: "110%" }}
                       animate={{ y: "0%" }}
@@ -97,7 +97,7 @@ export function Hero({
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="relative bg-white text-black px-10 py-4 text-[11px] uppercase tracking-[0.2em] overflow-hidden group cursor-pointer"
+                className="relative bg-white text-black px-7 py-3.5 md:px-10 md:py-4 text-[11px] uppercase tracking-[0.2em] overflow-hidden group cursor-pointer"
               >
                 <span className="relative z-10 transition-colors duration-300 group-hover:text-white">{ctaText}</span>
                 <span className="absolute inset-0 bg-foreground scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />

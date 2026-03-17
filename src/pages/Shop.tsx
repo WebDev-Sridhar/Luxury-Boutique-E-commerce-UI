@@ -6,6 +6,7 @@ import { ProductCard } from "../components/product-card";
 import { Hero } from "../components/hero";
 import { RevealOnScroll } from "../components/animation/RevealOnScroll";
 import { fadeUp } from "@/lib/animations";
+import { QuickViewModal } from "../components/product/QuickViewModal";
 import type { Product } from "@/types/product";
 
 type SortOption = "featured" | "price-asc" | "price-desc" | "name";
@@ -133,61 +134,10 @@ export function Shop() {
       {/* Quick View Modal */}
       <AnimatePresence>
         {quickViewProduct && (
-          <QuickView product={quickViewProduct} onClose={() => setQuickViewProduct(null)} />
+          <QuickViewModal product={quickViewProduct} onClose={() => setQuickViewProduct(null)} />
         )}
       </AnimatePresence>
     </>
-  );
-}
-
-function QuickView({ product, onClose }: { product: Product; onClose: () => void }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ scale: 0.95, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.95, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="bg-background max-w-2xl w-full flex flex-col md:flex-row overflow-hidden max-h-[80vh]"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="md:w-1/2 aspect-[3/4] md:aspect-auto">
-          <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover" />
-        </div>
-        <div className="md:w-1/2 p-8 flex flex-col justify-center">
-          {product.category && (
-            <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground mb-2">{product.category}</p>
-          )}
-          <h3 className="text-2xl mb-2" style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}>
-            {product.name}
-          </h3>
-          <p className="text-lg mb-4">${product.price.toLocaleString()}</p>
-          <p className="text-sm text-muted-foreground mb-6 leading-relaxed" style={{ fontWeight: 300 }}>
-            {product.description || `A beautifully crafted ${product.category?.toLowerCase() || "piece"} from our latest collection.`}
-          </p>
-          <div className="flex gap-3">
-            <a
-              href={`/product/${product.id}`}
-              className="flex-1 border border-border py-3 text-center text-[11px] uppercase tracking-[0.15em] hover:bg-muted transition-colors"
-            >
-              View Details
-            </a>
-            <button
-              onClick={onClose}
-              className="px-6 py-3 text-[11px] uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
   );
 }
 

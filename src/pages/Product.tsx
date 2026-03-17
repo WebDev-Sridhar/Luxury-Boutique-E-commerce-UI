@@ -10,6 +10,8 @@ import { ProductCard } from "../components/product-card";
 import { RevealOnScroll } from "../components/animation/RevealOnScroll";
 import { fadeUp } from "@/lib/animations";
 import { PageTransition } from "../components/animation/PageTransition";
+import { ImageLightbox } from "../components/product/ImageLightbox";
+import { SizeGuideModal } from "../components/product/SizeGuideModal";
 
 export function Product() {
   const { id } = useParams<{ id: string }>();
@@ -21,6 +23,8 @@ export function Product() {
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [quantity, setQuantity] = useState(1);
   const [activeAccordion, setActiveAccordion] = useState<string | null>("details");
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
 
   if (!product) {
     return (
@@ -94,7 +98,10 @@ export function Product() {
               </div>
 
               {/* Main Image */}
-              <div className="flex-1 relative overflow-hidden bg-muted aspect-[3/4] group cursor-zoom-in">
+              <div
+                className="flex-1 relative overflow-hidden bg-muted aspect-[3/4] group cursor-zoom-in"
+                onClick={() => setLightboxOpen(true)}
+              >
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={selectedImage}
@@ -175,7 +182,10 @@ export function Product() {
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">Size</p>
-                    <button className="text-[10px] uppercase tracking-wider text-muted-foreground underline hover:text-foreground transition-colors">
+                    <button
+                      onClick={() => setSizeGuideOpen(true)}
+                      className="text-[10px] uppercase tracking-wider text-muted-foreground underline hover:text-foreground transition-colors"
+                    >
                       Size Guide
                     </button>
                   </div>
@@ -337,6 +347,23 @@ export function Product() {
           </RevealOnScroll>
         )}
       </div>
+
+      {/* Lightbox */}
+      <ImageLightbox
+        images={images}
+        currentIndex={selectedImage}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        onNavigate={setSelectedImage}
+        alt={product.name}
+      />
+
+      {/* Size Guide */}
+      <SizeGuideModal
+        isOpen={sizeGuideOpen}
+        onClose={() => setSizeGuideOpen(false)}
+        category={product.category}
+      />
     </PageTransition>
   );
 }

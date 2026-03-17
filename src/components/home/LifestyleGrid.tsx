@@ -7,7 +7,7 @@ const lifestyleImages = [
   { src: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80", aspect: "tall" },
   { src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80", aspect: "wide" },
   { src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80", aspect: "tall" },
-  { src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80", aspect: "square" },
+  { src: "https://images.unsplash.com/photo-1762341532424-c7262c26d245?q=80&w=1313&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&q=80", aspect: "square" },
   { src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80", aspect: "wide" },
   { src: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=600&q=80", aspect: "square" },
   { src: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80", aspect: "tall" },

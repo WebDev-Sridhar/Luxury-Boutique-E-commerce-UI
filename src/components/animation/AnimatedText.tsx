@@ -8,6 +8,7 @@ interface AnimatedTextProps {
   delay?: number;
   className?: string;
   staggerDelay?: number;
+  style?: React.CSSProperties;
 }
 
 export function AnimatedText({
@@ -17,11 +18,12 @@ export function AnimatedText({
   delay = 0,
   className = "",
   staggerDelay = 0.08,
+  style,
 }: AnimatedTextProps) {
   const units = splitBy === "word" ? text.split(" ") : text.split("");
 
   return (
-    <Tag className={className}>
+    <Tag className={className} style={style}>
       <motion.span
         initial="hidden"
         whileInView="visible"

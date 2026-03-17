@@ -12,7 +12,7 @@ export function CTABanner() {
   const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <section ref={ref} className="relative h-[60vh] md:h-[70vh] overflow-hidden">
+    <section ref={ref} className="relative h-[50vh] sm:h-[55vh] md:h-[65vh] lg:h-[70vh] overflow-hidden">
       {/* Parallax BG */}
       <motion.div style={{ y }} className="absolute inset-0 w-full h-[130%] -top-[15%]">
         <img
@@ -39,7 +39,7 @@ export function CTABanner() {
         <AnimatedText
           text="Experience the Collection"
           as="h2"
-          className="text-white text-4xl md:text-6xl lg:text-7xl mb-8"
+          className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl mb-8"
           style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}
         />
 
@@ -53,7 +53,7 @@ export function CTABanner() {
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="relative bg-white text-black px-10 py-4 text-[11px] uppercase tracking-[0.2em] overflow-hidden group cursor-pointer"
+              className="relative bg-white text-black px-7 py-3.5 md:px-10 md:py-4 text-[11px] uppercase tracking-[0.2em] overflow-hidden group cursor-pointer"
             >
               <span className="relative z-10 transition-colors duration-300 group-hover:text-white">Shop Now</span>
               <span className="absolute inset-0 bg-black scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />

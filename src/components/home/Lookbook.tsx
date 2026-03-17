@@ -58,7 +58,7 @@ export function Lookbook() {
         {lookbookItems.map((item, i) => (
           <motion.div
             key={i}
-            className="relative w-[75vw] md:w-[45vw] lg:w-[35vw] h-[70vh] shrink-0 overflow-hidden group cursor-pointer"
+            className="relative w-[80vw] md:w-[45vw] lg:w-[35vw] h-[60vh] md:h-[70vh] shrink-0 overflow-hidden group cursor-pointer snap-center"
             whileHover={{ scale: 0.98 }}
             transition={{ duration: 0.4 }}
           >

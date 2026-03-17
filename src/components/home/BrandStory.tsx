@@ -24,7 +24,7 @@ export function BrandStory() {
         <div className="space-y-8">
           <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Our Story</p>
           <blockquote
-            className="text-2xl md:text-3xl lg:text-4xl leading-snug text-foreground/90 italic"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-snug text-foreground/90 italic"
             style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}
           >
             "We believe in the beauty of simplicity, the power of quality, and the timelessness of great design."
@@ -46,11 +46,11 @@ export function BrandStory() {
 
       {/* Stats Row */}
       <StaggerChildren staggerDelay={0.15} className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 mt-20 md:mt-28">
-        <div className="grid grid-cols-3 gap-8 border-t border-border/30 pt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-border/30 pt-12">
           {stats.map((stat) => (
             <RevealOnScroll key={stat.label} variant={fadeUp} className="text-center">
               <div
-                className="text-4xl md:text-5xl lg:text-6xl mb-3 text-foreground"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 text-foreground"
                 style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}
               >
                 <AnimatedCounter target={stat.target} suffix={stat.suffix} />

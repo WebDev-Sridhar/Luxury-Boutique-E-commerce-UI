@@ -8,7 +8,7 @@ import { useTheme } from "../hooks/useTheme";
 import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
 
-const heroPages = ["/", "/about", "/collections"];
+const heroPages = ["/", "/about", "/collections", "/shop", "/journal"];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -37,6 +37,11 @@ export function Navbar() {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileMenuOpen]);
+
   const navBg =
     isHeroPage && !scrolled
       ? "bg-transparent border-transparent"
@@ -54,7 +59,7 @@ export function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${navBg}`}
       >
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="flex items-center justify-between h-20 md:h-24">
+          <div className="flex items-center justify-between h-16 md:h-24">
             {/* Left: Mobile menu + Desktop nav */}
             <div className="flex items-center gap-8">
               <button
@@ -155,9 +160,9 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background pt-24"
+            className="fixed inset-0 z-40 bg-background pt-20 overflow-hidden"
           >
-            <div className="flex flex-col items-center justify-center h-full gap-1 -mt-20">
+            <div className="flex flex-col items-center justify-center h-full gap-1">
               {menuItems.map((item, i) => (
                 <motion.div
                   key={item}

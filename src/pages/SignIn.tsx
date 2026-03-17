@@ -13,7 +13,7 @@ export function SignIn() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen flex flex-col lg:flex-row">
+      <div className="min-h-screen flex flex-col lg:flex-row pt-20 md:pt-20">
         {/* Left: Image */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -40,7 +40,7 @@ export function SignIn() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="flex-1 flex items-center justify-center px-6 py-20 lg:py-0"
+          className="flex-1 flex items-center justify-center px-6 py-20 "
         >
           <div className="w-full max-w-sm">
             <Link to="/" className="block text-center mb-12">
