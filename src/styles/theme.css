@@ -158,7 +158,7 @@
   html {
     font-size: var(--font-size);
     transition: background-color 0.3s, color 0.3s;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body {
@@ -168,7 +168,7 @@
     line-height: 1.7;
     letter-spacing: 0.01em;
     transition: background-color 0.3s, color 0.3s;
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
   }
 

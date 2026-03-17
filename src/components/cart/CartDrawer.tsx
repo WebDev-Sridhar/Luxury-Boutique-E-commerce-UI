@@ -20,7 +20,7 @@ export function CartDrawer() {
 
   return (
     <Sheet open={isCartOpen} onOpenChange={(open) => !open && closeCart()}>
-      <SheetContent side="right" className="w-full sm:max-w-md flex flex-col p-0">
+      <SheetContent side="right" className="w-3/4 md:w-full sm:max-w-md flex flex-col p-0">
         <SheetHeader className="px-6 pt-6 pb-4 border-b border-border/50">
           <SheetTitle className="text-2xl font-normal tracking-wide" style={{ fontFamily: "Cormorant Garamond, serif" }}>
             Your Bag

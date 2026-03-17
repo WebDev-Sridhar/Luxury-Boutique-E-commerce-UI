@@ -7,7 +7,7 @@ import ScrollToTop from "../components/ScrollToTop";
 
 export function Layout() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-clip">
       <ScrollToTop />
       <Navbar />
       <main className="min-h-screen">

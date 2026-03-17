@@ -36,9 +36,9 @@ export function Lookbook() {
   return (
     <section>
       {/* Section Header */}
-      <div className="px-6 md:px-12 lg:px-20 max-w-[1800px] mx-auto pt-20 md:pt-32 pb-12">
+      <div className="px-6 md:px-12 lg:px-20 max-w-[1800px] mx-auto pt-20 md:pt-32 ">
         <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">Editorial</p>
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div className="flex flex-col gap-4">
           <AnimatedText
             text="The Edit"
             as="h2"

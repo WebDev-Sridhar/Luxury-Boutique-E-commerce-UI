@@ -13,21 +13,45 @@ export function HorizontalScroll({
   height = "300vh",
 }: HorizontalScrollProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [scrollRange, setScrollRange] = useState(0);
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  useEffect(() => {
+    const measure = () => {
+      if (scrollRef.current) {
+        const contentWidth = scrollRef.current.scrollWidth;
+        const viewportWidth = window.innerWidth;
+        setScrollRange(contentWidth - viewportWidth);
+      }
+    };
+
+    // Measure after layout + images settle
+    measure();
+    const raf = requestAnimationFrame(measure);
+    const timer = setTimeout(measure, 500);
+
+    window.addEventListener("resize", measure);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timer);
+      window.removeEventListener("resize", measure);
+    };
+  }, [children]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+  const x = useTransform(scrollYProgress, [0, 1], [0, -scrollRange]);
 
   // Mobile: horizontal overflow scroll instead of scroll-jacking
   if (isMobile) {
@@ -41,9 +65,13 @@ export function HorizontalScroll({
   }
 
   return (
-    <section ref={containerRef} className={`relative overflow-hidden ${className}`} style={{ height }}>
+    <section ref={containerRef} className={`relative ${className}`} style={{ height }}>
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-6 pl-8 lg:pl-20">
+        <motion.div
+          ref={scrollRef}
+          style={{ x }}
+          className="flex gap-6 pl-8 lg:pl-20 pr-8 lg:pr-20"
+        >
           {children}
         </motion.div>
       </div>

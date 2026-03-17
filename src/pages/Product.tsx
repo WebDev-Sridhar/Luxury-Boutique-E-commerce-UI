@@ -80,9 +80,9 @@ export function Product() {
 
         {/* Main Product Section */}
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 pb-20">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
+          <div className="flex flex-col  lg:flex-row gap-10 lg:gap-16">
             {/* Image Gallery */}
-            <div className="lg:w-[58%] flex gap-4">
+            <div className="lg:w-[58%] flex-1 md:flex gap-4">
               {/* Thumbnails */}
               <div className="hidden md:flex flex-col gap-3 w-20 shrink-0">
                 {images.map((src, idx) => (
