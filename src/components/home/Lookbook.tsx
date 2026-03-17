@@ -63,8 +63,8 @@ export function Lookbook() {
             transition={{ duration: 0.4 }}
           >
             <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent md:opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-4 group-hover:translate-y-0 md:opacity-0 group-hover:opacity-100 transition-all duration-500">
               <p className="text-white/70 text-[10px] uppercase tracking-[0.2em] mb-2">{item.subtitle}</p>
               <h3
                 className="text-white text-2xl md:text-3xl"

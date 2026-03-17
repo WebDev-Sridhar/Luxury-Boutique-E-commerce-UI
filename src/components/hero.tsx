@@ -50,7 +50,7 @@ export function Hero({
       {/* Content - Asymmetric bottom-left */}
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className="absolute inset-0 flex flex-col justify-end pb-20 md:pb-24 lg:pb-32 px-6 md:px-12 lg:px-20"
+        className="absolute inset-0 flex flex-col justify-end pb-26 md:pb-24 lg:pb-32 px-6 md:px-12 lg:px-20"
       >
         <div className="max-w-[1800px] mx-auto w-full">
           {/* Oversized Title with staggered reveal */}
