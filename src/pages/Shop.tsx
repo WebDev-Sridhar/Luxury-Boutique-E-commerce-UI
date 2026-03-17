@@ -1,6 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal, ChevronDown } from "lucide-react";
 import { products } from "../data/products";
 import { ProductCard } from "../components/product-card";
 import { Hero } from "../components/hero";
@@ -15,6 +15,18 @@ export function Shop() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [sortBy, setSortBy] = useState<SortOption>("featured");
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+  const [sortOpen, setSortOpen] = useState(false);
+  const sortRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (sortRef.current && !sortRef.current.contains(e.target as Node)) {
+        setSortOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const categories = useMemo(() => {
     const cats = Array.from(new Set(products.map((p) => p.category).filter(Boolean))) as string[];
@@ -68,13 +80,11 @@ export function Shop() {
                   }`}
                 >
                   {cat}
-                  {activeCategory === cat && (
-                    <motion.span
-                      layoutId="activeFilter"
-                      className="absolute bottom-0 left-0 right-0 h-[1px] bg-foreground"
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
+                  <span
+                    className={`absolute bottom-0 left-0 right-0 h-[1px] bg-foreground transition-transform duration-300 origin-left ${
+                      activeCategory === cat ? "scale-x-100" : "scale-x-0"
+                    }`}
+                  />
                 </button>
               ))}
             </div>
@@ -84,18 +94,47 @@ export function Shop() {
               <span className="text-xs text-muted-foreground">
                 {filtered.length} piece{filtered.length !== 1 ? "s" : ""}
               </span>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <SlidersHorizontal className="w-3.5 h-3.5" />
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as SortOption)}
-                  className="bg-transparent text-xs tracking-wide focus:outline-none cursor-pointer"
+              <div ref={sortRef} className="relative">
+                <button
+                  onClick={() => setSortOpen(!sortOpen)}
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
-                  <option value="featured">Featured</option>
-                  <option value="price-asc">Price: Low to High</option>
-                  <option value="price-desc">Price: High to Low</option>
-                  <option value="name">Name A-Z</option>
-                </select>
+                  <SlidersHorizontal className="w-3.5 h-3.5" />
+                  <span className="text-xs tracking-wide">
+                    {sortBy === "featured" ? "Featured" : sortBy === "price-asc" ? "Price: Low to High" : sortBy === "price-desc" ? "Price: High to Low" : "Name A-Z"}
+                  </span>
+                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${sortOpen ? "rotate-180" : ""}`} />
+                </button>
+                <AnimatePresence>
+                  {sortOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 top-full mt-2 min-w-[180px] bg-background border border-border/50 shadow-lg z-20"
+                    >
+                      {([
+                        { value: "featured", label: "Featured" },
+                        { value: "price-asc", label: "Price: Low to High" },
+                        { value: "price-desc", label: "Price: High to Low" },
+                        { value: "name", label: "Name A-Z" },
+                      ] as { value: SortOption; label: string }[]).map((opt) => (
+                        <button
+                          key={opt.value}
+                          onClick={() => { setSortBy(opt.value); setSortOpen(false); }}
+                          className={`w-full text-left px-4 py-2.5 text-[11px] uppercase tracking-[0.1em] transition-colors ${
+                            sortBy === opt.value
+                              ? "bg-muted text-foreground"
+                              : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                          }`}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
           </div>

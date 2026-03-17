@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { motion, type Variants } from "motion/react";
 import { fadeUp, smooth, viewportOnce } from "@/lib/animations";
 
@@ -18,7 +19,7 @@ export function RevealOnScroll({
   className = "",
   as = "div",
 }: RevealOnScrollProps) {
-  const Component = motion.create(as);
+  const Component = useMemo(() => motion.create(as), [as]);
 
   return (
     <Component
